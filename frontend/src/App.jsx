@@ -1,33 +1,15 @@
-import { useEffect, useState } from "react";
-import { getHealth } from "./services/api";
-
 function App() {
-  const [status, setStatus] = useState("Checking...");
-
-  useEffect(() => {
-    async function checkBackend() {
-      try {
-        const data = await getHealth();
-        setStatus(data.status);
-      } catch (error) {
-        setStatus("offline");
-      }
-    }
-
-    checkBackend();
-  }, []);
-
   return (
-    <div style={{ padding: "40px", fontFamily: "Arial" }}>
-      <h1>AuditAI</h1>
+    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+      <div className="bg-white p-8 rounded-xl shadow-lg">
+        <h1 className="text-4xl font-bold text-blue-600">
+          AuditAI 🚀
+        </h1>
 
-      <h2>
-        Backend Status:
-        {" "}
-        {status === "online" ? "🟢 Online" : "🔴 Offline"}
-      </h2>
-
-      <p>Welcome to AuditAI 🚀</p>
+        <p className="mt-4 text-gray-600">
+          Tailwind CSS is working!
+        </p>
+      </div>
     </div>
   );
 }
